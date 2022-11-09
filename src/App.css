@@ -1,38 +1,110 @@
-.App {
-  text-align: center;
+.app{
+    background-color: white;
+    border-radius: 1em;
+    padding: 2em;
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.notifications-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.full-notification{
+    display: flex;
+    max-width: 40em;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    background-color: hsl(210, 60%, 98%);
 }
 
-.App-link {
-  color: #61dafb;
+.read {
+    background-color: inherit;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.notification-content {
+    display: flex;
+    flex-direction: column;
+    margin: 0 1em;
+    align-self: center;
+    flex: 1 0 0;
 }
+
+.image {
+    height: 50px;
+    flex: 0 0 50px;
+    position: relative;
+}
+
+.image img {
+    object-fit: contain;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.message {
+    border: 1px solid hsl(211, 68%, 94%);
+    border-radius: 0.2em;
+    padding: 0.8em;
+    margin: 1em 0;
+    color: hsl(219, 12%, 42%)
+}
+
+.time {
+    color: hsl(219, 14%, 63%)
+}
+
+.text-container {
+    overflow-wrap: anywhere;
+    gap: 0.3em;
+    align-items: center;
+    display: block;
+}
+
+.text-container div {
+    display: inline;
+}
+
+.name{
+    font-weight: 800;
+}
+
+.text {
+    color: hsl(219, 12%, 42%)
+}
+
+.event-name{
+    font-weight: 800;
+    color: hsl(219, 12%, 42%);
+}
+
+.club-name{
+    font-weight: 800;
+    color: hsl(209, 82%, 33%);
+}
+
+.unread {
+    height: 5px;
+    width: 5px;
+    border-radius: 50%;
+    background-color: red;
+}
+
+.picture-container {
+    display: flex;
+    flex: 0 0 50px;
+}
+
+.picture {
+    height: 50px;
+    width: 50px;
+}
+
