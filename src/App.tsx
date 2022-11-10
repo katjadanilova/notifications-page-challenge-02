@@ -46,14 +46,18 @@ function Notification(props: NotificationProps) {
                     <div className={classNames("event-name", {"club-name": props.clubName})}>
                         {props.eventName || props.clubName}
                     </div>
-                    {!read && <div className="unread"></div>}
+
+                        {!read && <span className="unread"></span>}
+
+
                 </div>
                 <div className="time">{props.time}</div>
-
             </div>
+
 
             {props.message ? <div className="message">{props.message}</div> : <></>}
         </div>
+
         {props.picture &&
             <picture className="picture-container">
                 <img className="picture" src={props.picture} alt="reference to an image"/>
@@ -125,11 +129,12 @@ function App() {
         <div className="app">
             <div className="notifications-container">
                 <div className="header">
+
                     <div className="counter-container">
                         <h1>Notifications</h1>
                         <div className="counter">{unreadNotifications}</div>
                     </div>
-                    <button>Mark all as read</button>
+                    <button className="mark-read-button">Mark all as read</button>
                 </div>
                 {
                     notifications.map((item) => <Notification

@@ -15,6 +15,28 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 1em;
+}
+
+.counter-container {
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
+}
+
+.counter {
+    vertical-align: middle;
+    padding: 0.2em 0.6em;
+    background-color: hsl(209, 82%, 33%);
+    color: white;
+    font-weight: 800;
+    border-radius: 0.5em;
+}
+
+.mark-read-button {
+    background-color: inherit;
+    border: none;
+    color: hsl(219, 12%, 42%);
 }
 
 .full-notification{
@@ -62,15 +84,19 @@
     color: hsl(219, 14%, 63%)
 }
 
-.text-container {
-    overflow-wrap: anywhere;
-    gap: 0.3em;
-    align-items: center;
-    display: block;
-}
-
 .text-container div {
     display: inline;
+}
+
+
+.unread {
+    margin-left: 0.3em;
+    display: inline-block;
+    height: 5px;
+    width: 5px;
+    border-radius: 50%;
+    background-color: red;
+    vertical-align: middle;
 }
 
 .name{
@@ -78,25 +104,23 @@
 }
 
 .text {
+    margin-left: 0.3em;
     color: hsl(219, 12%, 42%)
 }
 
 .event-name{
+    margin-left: 0.3em;
     font-weight: 800;
     color: hsl(219, 12%, 42%);
 }
 
 .club-name{
+    margin-left: 0.3em;
     font-weight: 800;
     color: hsl(209, 82%, 33%);
 }
 
-.unread {
-    height: 5px;
-    width: 5px;
-    border-radius: 50%;
-    background-color: red;
-}
+
 
 .picture-container {
     display: flex;
