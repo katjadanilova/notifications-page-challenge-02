@@ -1,8 +1,22 @@
-.app{
+.app {
     background-color: white;
     border-radius: 1em;
     padding: 2em;
+}
 
+@media (max-width: 500px) {
+    .app {
+        padding: 1em;
+        border-radius: 0;
+    }
+
+    .header {
+        font-size: 0.8em;
+    }
+
+    .mark-read-button {
+        padding: 0.5em !important;
+    }
 }
 
 .notifications-container {
@@ -37,9 +51,17 @@
     background-color: inherit;
     border: none;
     color: hsl(219, 12%, 42%);
+    padding: 1em;
+    border-radius: 0.5em;
+    cursor: pointer;
 }
 
-.full-notification{
+.mark-read-button:hover {
+    color: hsl(209, 82%, 33%);
+
+}
+
+.full-notification {
     display: flex;
     max-width: 40em;
     padding: 0.5em;
@@ -80,6 +102,11 @@
     color: hsl(219, 12%, 42%)
 }
 
+.message:hover {
+    background-color: hsl(211, 68%, 94%);
+    cursor: pointer;
+}
+
 .time {
     color: hsl(219, 14%, 63%)
 }
@@ -99,8 +126,13 @@
     vertical-align: middle;
 }
 
-.name{
+.name {
     font-weight: 800;
+    cursor: pointer;
+}
+
+.name:hover {
+    color: hsl(209, 82%, 33%);
 }
 
 .text {
@@ -108,18 +140,23 @@
     color: hsl(219, 12%, 42%)
 }
 
-.event-name{
+.event-name {
     margin-left: 0.3em;
     font-weight: 800;
     color: hsl(219, 12%, 42%);
+    cursor: pointer;
 }
 
-.club-name{
+.event-name:hover {
+    color: hsl(209, 82%, 33%);
+
+}
+
+.club-name {
     margin-left: 0.3em;
     font-weight: 800;
     color: hsl(209, 82%, 33%);
 }
-
 
 
 .picture-container {

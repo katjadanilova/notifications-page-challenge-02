@@ -12,7 +12,6 @@ import rizky from "./images/avatar-rizky-hasanuddin.webp";
 import chess from "./images/image-chess.webp"
 import classNames from "classnames";
 
-
 type NotificationProps = {
     imageName: string,
     name: string,
@@ -23,12 +22,17 @@ type NotificationProps = {
     message?: string,
     picture?: string,
     onClick: () => void,
+    allRead: boolean
 }
 
 function Notification(props: NotificationProps) {
     const [read, setRead] = useState(false)
 
-    return <div className={classNames("full-notification", {"read": read})}
+    const areAllRead = () => {
+        return !read && !props.allRead;
+    }
+
+    return <div className={classNames("full-notification", {"read": read}, {"read": props.allRead})}
                 onClick={() => {
                     setRead(true)
                     props.onClick()
@@ -47,7 +51,7 @@ function Notification(props: NotificationProps) {
                         {props.eventName || props.clubName}
                     </div>
 
-                        {!read && <span className="unread"></span>}
+                    {areAllRead() && <span className="unread"></span>}
 
 
                 </div>
@@ -118,23 +122,38 @@ const notifications = [
 ]
 
 function App() {
+    const [readNotifications, setReadNotifications] = useState<string[]>([])
 
-    const [unreadNotifications, setUnreadNotifications] = useState(notifications.length)
+    const handleClick = (notificationName: string) => {
+        if (readNotifications.length === 0) {
+            setReadNotifications(arr => [...arr, notificationName])
+        } else {
+            if (!readNotifications.includes(notificationName))
+                setReadNotifications(arr => [...arr, notificationName])
+        }
+    }
 
-    const handleClick = () => {
-        setUnreadNotifications(n => n - 1);
+    const setAllRead = () => {
+        let read = []
+        for (const item of notifications) {
+            read.push(item.name)
+        }
+        setReadNotifications(read)
+    }
+
+    const areAllRead = () => {
+        return readNotifications.length === notifications.length;
     }
 
     return (
         <div className="app">
             <div className="notifications-container">
                 <div className="header">
-
                     <div className="counter-container">
                         <h1>Notifications</h1>
-                        <div className="counter">{unreadNotifications}</div>
+                        <div className="counter">{notifications.length - readNotifications.length}</div>
                     </div>
-                    <button className="mark-read-button">Mark all as read</button>
+                    <button onClick={setAllRead} className="mark-read-button">Mark all as read</button>
                 </div>
                 {
                     notifications.map((item) => <Notification
@@ -147,10 +166,10 @@ function App() {
                         clubName={item.clubName}
                         message={item.message}
                         picture={item.picture}
-                        onClick={handleClick}
+                        onClick={() => handleClick(item.name)}
+                        allRead={areAllRead()}
                     />)
                 }
-
             </div>
         </div>
     );
