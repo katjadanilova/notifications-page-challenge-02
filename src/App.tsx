@@ -38,34 +38,34 @@ function Notification(props: NotificationProps) {
                     props.onClick()
                 }}>
 
-        <picture className="image">
+        <div className="image">
             <img src={props.imageName} alt={props.name + "photo"}/>
-        </picture>
+        </div>
 
         <div className="notification-content">
-            <div className="content">
+            <div>
                 <div className="text-container">
-                    <div className="name">{props.name}</div>
-                    <div className="text">{props.text}</div>
-                    <div className={classNames("event-name", {"club-name": props.clubName})}>
+                    <strong className="name">{props.name}</strong>
+                    <p className="text">{props.text}</p>
+                    <strong className={classNames("event-name", {"club-name": props.clubName})}>
                         {props.eventName || props.clubName}
-                    </div>
+                    </strong>
 
                     {areAllRead() && <span className="unread"></span>}
 
 
                 </div>
-                <div className="time">{props.time}</div>
+                <p className="time">{props.time}</p>
             </div>
 
 
-            {props.message ? <div className="message">{props.message}</div> : <></>}
+            {props.message ? <p className="message">{props.message}</p> : <></>}
         </div>
 
         {props.picture &&
-            <picture className="picture-container">
-                <img className="picture" src={props.picture} alt="reference to an image"/>
-            </picture>
+            <div className="picture-container">
+                <img className="picture" src={props.picture} alt="Original message mentioned in the notification"/>
+            </div>
         }
     </div>
 }
@@ -151,7 +151,8 @@ function App() {
                 <div className="header">
                     <div className="counter-container">
                         <h1>Notifications</h1>
-                        <div className="counter">{notifications.length - readNotifications.length}</div>
+                        <div aria-label="Counter"
+                             className="counter">{notifications.length - readNotifications.length}</div>
                     </div>
                     <button onClick={setAllRead} className="mark-read-button">Mark all as read</button>
                 </div>

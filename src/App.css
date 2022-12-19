@@ -111,10 +111,9 @@
     color: hsl(219, 14%, 63%)
 }
 
-.text-container div {
+.text-container div, p {
     display: inline;
 }
-
 
 .unread {
     margin-left: 0.3em;
@@ -127,7 +126,6 @@
 }
 
 .name {
-    font-weight: 800;
     cursor: pointer;
 }
 
@@ -142,22 +140,18 @@
 
 .event-name {
     margin-left: 0.3em;
-    font-weight: 800;
     color: hsl(219, 12%, 42%);
     cursor: pointer;
 }
 
 .event-name:hover {
     color: hsl(209, 82%, 33%);
-
 }
 
 .club-name {
     margin-left: 0.3em;
-    font-weight: 800;
     color: hsl(209, 82%, 33%);
 }
-
 
 .picture-container {
     display: flex;
